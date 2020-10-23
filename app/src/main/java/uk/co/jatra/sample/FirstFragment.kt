@@ -49,6 +49,10 @@ class FirstFragment : Fragment() {
 
     class SampleAdapter(val context: Context): RecyclerView.Adapter<SampleAdapter.SampleViewHolder>() {
         var data: List<String> = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder {
             return SampleViewHolder(LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent, false) as TextView)
