@@ -12,7 +12,7 @@ Has the basics for Navgraph, MVM, repository and Hilt injection.
 ```
     buildscript {
         ext.kotlin_version = "1.4.10"
-        ext.hilt_version = '2.28-alpha'
+        ext.hilt_version = '2.28.3-alpha'
         repositories {
             google()
             jcenter()
@@ -52,11 +52,11 @@ dependencies {
 
     // Hilt dependencies
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
 
     //Hilt extensions - for the ViewModelInject
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
 
     //also useful, for by viewModels
     implementation 'androidx.fragment:fragment-ktx:1.2.5'

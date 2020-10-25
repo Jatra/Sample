@@ -1,19 +1,17 @@
 package uk.co.jatra.sample
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
+import uk.co.jatra.sample.model.Breed
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -48,17 +46,19 @@ class FirstFragment : Fragment() {
     }
 
     class SampleAdapter(val context: Context): RecyclerView.Adapter<SampleAdapter.SampleViewHolder>() {
-        var data: List<String> = emptyList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+        var data: List<Breed> = emptyList()
+            set(value) {
+                field = value
+                notifyDataSetChanged()
+            }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder {
-            return SampleViewHolder(LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent, false) as TextView)
+            return SampleViewHolder(
+                LayoutInflater.from(context).inflate(R.layout.list_item, parent, false) as TextView
+            )
         }
         override fun onBindViewHolder(holder: SampleViewHolder, position: Int) {
-            holder.view.text = data[position]
+            holder.view.text = data[position].name
         }
         override fun getItemCount(): Int {
             return data.size
